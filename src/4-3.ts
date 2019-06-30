@@ -11,7 +11,10 @@ namespace T4_3 {
   }
 
   class EventDischarger<E> {
-    emit<Ev extends keyof E>(eventName: Ev, payload: /* ここを埋める */) {
+    emit<Ev extends keyof E>(
+      eventName: Ev,
+      payload: Ev extends Ev ? never : Ev
+    ) {
       // 省略
     }
   }
